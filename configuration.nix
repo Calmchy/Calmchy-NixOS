@@ -108,6 +108,7 @@
     xarchiver
     xfce.xfce4-whiskermenu-plugin
     brave
+    vscode
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
