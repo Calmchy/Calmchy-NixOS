@@ -6,9 +6,11 @@
       ./hardware-configuration.nix
     ];
 
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/vda";
-  boot.loader.grub.useOSProber = true;
+  # boot.loader.grub.enable = true;
+  # boot.loader.grub.device = "/dev/vda";
+  # boot.loader.grub.useOSProber = true;
+
+  boot.loader.systemd-boot.enable = true;
 
   networking.hostName = "nixos";
 
@@ -88,10 +90,14 @@
     zip
     unzip
     xarchiver
-    xfce.xfce4-whiskermenu-plugin
+    xfce4-whiskermenu-plugin
     brave
     vscode
     blueman
+    vim
+    micro
+    xfce4-panel-profiles
+    xfce4-weather-plugin
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
