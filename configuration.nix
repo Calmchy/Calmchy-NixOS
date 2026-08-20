@@ -75,7 +75,7 @@
     description = "Calmchy";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-    #  thunderbird
+      thunderbird
     ];
   };
 
@@ -98,6 +98,8 @@
     micro
     xfce4-panel-profiles
     xfce4-weather-plugin
+    plank
+    jdk8
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
