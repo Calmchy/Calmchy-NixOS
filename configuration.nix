@@ -43,6 +43,17 @@
 
   virtualisation.docker.enable = true;
 
+  virtualisation.libvirtd = {
+    enable = true;
+    qemu = {
+      package = pkgs.qemu;
+      runAsRoot = true;
+      swtpm.enable = true;
+    };
+  };
+
+  programs.virt-manager.enable = true;
+
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
@@ -75,7 +86,7 @@
   users.users.calmchy = {
     isNormalUser = true;
     description = "Calmchy";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "libvirtd" ];
     packages = with pkgs; [
       thunderbird
     ];
@@ -103,6 +114,13 @@
     plank
     jdk8
     docker-compose
+    virt-manager
+    virt-viewer
+    spice
+    spice-gtk
+    spice-protocol
+    virtio-win   
+    win-spice
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
