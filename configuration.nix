@@ -41,6 +41,8 @@
   services.xserver.displayManager.lightdm.enable = true;
   services.xserver.desktopManager.xfce.enable = true;
 
+  virtualisation.docker.enable = true;
+
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
@@ -73,7 +75,7 @@
   users.users.calmchy = {
     isNormalUser = true;
     description = "Calmchy";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
       thunderbird
     ];
