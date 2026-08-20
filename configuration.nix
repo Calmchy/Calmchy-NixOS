@@ -43,17 +43,6 @@
 
   virtualisation.docker.enable = true;
 
-  virtualisation.libvirtd = {
-    enable = true;
-    qemu = {
-      package = pkgs.qemu;
-      runAsRoot = true;
-      swtpm.enable = true;
-    };
-  };
-
-  programs.virt-manager.enable = true;
-
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
