@@ -8,18 +8,24 @@
     [ (modulesPath + "/profiles/qemu-guest.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "ahci" "xhci_pci" "virtio_pci" "virtio_scsi" "sr_mod" "virtio_blk" ];
+  boot.initrd.availableKernelModules = [ "ahci" "xhci_pci" "virtio_pci" "sr_mod" "virtio_blk" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/9fb08320-61af-489e-b7e1-80ba4d3d662a";
+    { device = "/dev/disk/by-uuid/986a6852-d428-4ad7-b1fb-7919557ee7b5";
       fsType = "ext4";
     };
 
+  fileSystems."/boot" =
+    { device = "/dev/disk/by-uuid/6B5E-8D93";
+      fsType = "vfat";
+      options = [ "fmask=0077" "dmask=0077" ];
+    };
+
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/d69e992f-bf0f-4e9e-a7b0-bd7a89073c12"; }
+    [ { device = "/dev/disk/by-uuid/46158947-a1fb-4942-9911-618aa25e4c2a"; }
     ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
