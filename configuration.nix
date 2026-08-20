@@ -102,6 +102,7 @@
     xfce4-weather-plugin
     plank
     jdk8
+    docker-compose
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
