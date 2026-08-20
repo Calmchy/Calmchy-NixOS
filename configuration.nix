@@ -3,7 +3,7 @@
 {
   imports =
     [
-      ./hardware-configuration.nix
+      ./virtualisation.nix
     ];
 
   # boot.loader.grub.enable = true;
