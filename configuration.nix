@@ -13,6 +13,8 @@
 
   boot.loader.systemd-boot.enable = true;
 
+  boot.initrd.kernelModules = [ "amdgpu" ];
+
   networking.hostName = "nixos";
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -35,6 +37,13 @@
     LC_PAPER = "fil_PH";
     LC_TELEPHONE = "fil_PH";
     LC_TIME = "fil_PH";
+  };
+
+  services.xserver.videoDrivers = [ "amdgpu" ];
+
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
   };
 
   # Enable the X11 windowing system.
@@ -62,8 +71,35 @@
     shadowOpacity = 0.6;
     settings = {
       corner-radius = 8;
+
+      shadow-exclude = [
+        "class_g = 'Plank'"
+        "window_type = 'dock'"
+        "window_type = 'desktop'"
+        "_GTK_FRAME_EXTENTS@:c"
+        "window_type = 'menu'"
+        "window_type = 'popup_menu'"
+        "window_type = 'dropdown_menu'"
+      ];
+
+      corner-radius-rules = [
+        "0:class_g = 'Plank'"
+      ];
+
       blur-method = "dual_kawase";
       blur-strength = 5;
+      #blur-background-frame = false;
+
+      blur-background-fixed = true;
+
+      blur-background-exclude = [
+        "class_g = 'Plank'"
+        "_GTK_FRAME_EXTENTS@:c"
+        "class_g = 'Xfce4-screenshooter'"
+        "class_i = 'xfce4-screenshooter'"
+      ];
+
+       unredir-if-possible = true;
     };
   };
 
@@ -167,6 +203,8 @@
     # unknown
     ani-cli
     syncplay
+    pciutils
+    mesa-demos
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
