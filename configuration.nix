@@ -72,9 +72,9 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.calmchy = {
+  users.users.manatad = {
     isNormalUser = true;
-    description = "Calmchy";
+    description = "Chyril S. Manatad";
     extraGroups = [ "networkmanager" "wheel" "docker" "libvirtd" ];
     packages = with pkgs; [
       thunderbird
