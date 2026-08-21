@@ -1,32 +1,32 @@
 { config, pkgs, ... }:
 
 let
-  php = pkgs.php85.withExtensions (exts: with exts.enabled; [
-    pdo
-    pdo_mysql
-    pdo_sqlite
-    pdo_pgsql
-    mbstring
-    openssl
-    tokenizer
-    xml
-    ctype
-    json
-    bcmath
-    curl
-    fileinfo
-    gd
-    zip
-    redis
-    intl
-    sodium
-  ]);
+  extraExtensionNames = [
+    "pdo_mysql"
+    "pdo_pgsql"
+    "pdo_sqlite"
+    "gd"
+    "zip"
+    "redis"
+    "intl"
+    "sodium"
+    "bcmath"
+  ];
+
+  php = pkgs.php85.withExtensions (exts:
+    let
+      alreadyEnabled = map (e: e.extensionName) exts.enabled;
+      namesToAdd = builtins.filter (n: !(builtins.elem n alreadyEnabled)) extraExtensionNames;
+      extra = map (n: exts.all.${n}) namesToAdd;
+    in
+    exts.enabled ++ extra
+  );
 in
 {
   environment.systemPackages = with pkgs; [
     php
     php.packages.composer
-    laravel     # provides the `laravel` CLI -> `laravel new myproject`
-    nodejs_20   # for Vite / npm asset builds
+    laravel
+    nodejs_22
   ];
 }
