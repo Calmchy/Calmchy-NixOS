@@ -10,7 +10,7 @@
     shadow = true;
     shadowOpacity = 0.6;
     settings = {
-      corner-radius = 8;
+      # corner-radius = 8;
 
       shadow-exclude = [
         "class_g = 'Plank'"
