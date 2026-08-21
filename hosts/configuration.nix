@@ -3,7 +3,6 @@
 {
   imports =
     [
-      ../modules/lightdm.nix
       ../modules/packages.nix
       ../modules/virtualisation.nix
       ../modules/php.nix
@@ -54,6 +53,7 @@
 
   # Enable the XFCE Desktop Environment.
   services.xserver.desktopManager.xfce.enable = true;
+  services.xserver.displayManager.lightdm.enable = true;
 
   virtualisation.docker.enable = true;
 
