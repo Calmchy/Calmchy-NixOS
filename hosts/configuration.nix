@@ -3,10 +3,10 @@
 {
   imports =
     [
-      ./packages.nix
-      ./virtualisation.nix
-      ./php.nix
-      ./picom.nix
+      ../modules/packages.nix
+      ../modules/virtualisation.nix
+      ../modules/php.nix
+      ../modules/picom.nix
     ];
 
   # boot.loader.grub.enable = true;
