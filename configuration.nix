@@ -4,6 +4,7 @@
   imports =
     [
       ./virtualisation.nix
+      ./php.nix
     ];
 
   # boot.loader.grub.enable = true;
