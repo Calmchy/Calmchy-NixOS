@@ -15,6 +15,8 @@
 
   networking.hostName = "nixos";
 
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   hardware.bluetooth.enable = true;
 
   networking.networkmanager.enable = true;
@@ -48,6 +50,21 @@
   services.xserver.xkb = {
     layout = "us";
     variant = "";
+  };
+
+  services.picom = {
+    enable = true;
+    backend = "glx";
+    vSync = true;
+    fade = true;
+    fadeDelta = 4;
+    shadow = true;
+    shadowOpacity = 0.6;
+    settings = {
+      corner-radius = 8;
+      blur-method = "dual_kawase";
+      blur-strength = 5;
+    };
   };
 
   # Enable CUPS to print documents.
@@ -143,12 +160,13 @@
     clementine
     obs-studio
     handbrake
+    tigervnc
+    veracrypt
     mpv
 
     # unknown
     ani-cli
     syncplay
-    
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
