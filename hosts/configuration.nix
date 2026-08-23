@@ -55,6 +55,11 @@
   services.xserver.desktopManager.xfce.enable = true;
   services.xserver.displayManager.lightdm.enable = true;
 
+  services.gvfs.enable = true;
+  programs.xfconf.enable = true;
+
+  programs.fish.enable = true;
+
   virtualisation.docker.enable = true;
 
   # Configure keymap in X11
@@ -89,6 +94,7 @@
   users.users.manatad = {
     isNormalUser = true;
     description = "Chyril S. Manatad";
+    shell = pkgs.fish; 
     extraGroups = [ "networkmanager" "wheel" "docker" "libvirtd" ];
     packages = with pkgs; [
       thunderbird

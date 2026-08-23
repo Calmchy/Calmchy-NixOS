@@ -3,6 +3,22 @@
 {
   nixpkgs.config.allowUnfree = true;
 
+  programs.thunar = {
+    enable = true;
+    plugins = with pkgs.xfce; [
+      thunar-archive-plugin
+      thunar-volman
+    ];
+  };
+
+  programs.fish = {
+    enable = true;
+    interactiveShellInit = ''
+      oh-my-posh init fish --config $HOME/.poshthemes/if_tea.omp.json | source
+      set -g fish_greeting ""
+    '';
+  };
+
   environment.systemPackages = with pkgs; [
 
     # web
@@ -25,6 +41,7 @@
     p7zip
     gparted
     xarchiver
+    file-roller 
 
     # XFCE
     xfce4-whiskermenu-plugin
@@ -76,5 +93,6 @@
     mesa-demos
     hunspell
     hunspellDicts.en_US
+    oh-my-posh
   ];
 }
