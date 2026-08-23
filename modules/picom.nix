@@ -7,7 +7,7 @@
     vSync = true;
     # fade = false;
     # fadeDelta = 4;
-    shadow = true;
+    shadow = false;
     shadowOpacity = 0.6;
     settings = {
       # corner-radius = 8;

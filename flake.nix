@@ -2,7 +2,7 @@
   description = "NixOS config for calmchy";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "git+https://github.com/NixOS/nixpkgs?ref=nixos-unstable";
   };
 
   outputs = { self, nixpkgs, ... }: {
