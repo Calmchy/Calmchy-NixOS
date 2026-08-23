@@ -65,11 +65,16 @@
     tigervnc
     veracrypt
     mpv
+    alacritty
+    libreoffice
+  
 
     # unknown
     ani-cli
     syncplay
     pciutils
     mesa-demos
+    hunspell
+    hunspellDicts.en_US
   ];
 }
