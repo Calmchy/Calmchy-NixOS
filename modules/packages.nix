@@ -94,5 +94,6 @@
     hunspell
     hunspellDicts.en_US
     oh-my-posh
+    chafa
   ];
 }

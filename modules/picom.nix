@@ -36,8 +36,9 @@
         "_GTK_FRAME_EXTENTS@:c"
         "class_g = 'Xfce4-screenshooter'"
         "class_i = 'xfce4-screenshooter'"
+        "window_type = 'panel'"
         "class_g = 'Xfce4-panel'"
-        "class_i = 'xfce4-panel'"
+        "class_g = 'xfce4-panel'"
       ];
 
        unredir-if-possible = true;
