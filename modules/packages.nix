@@ -54,7 +54,7 @@
     # text editor
     vim
     micro
-    vscode
+    vscodium
 
     # browser
     brave
