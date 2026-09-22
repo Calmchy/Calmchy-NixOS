@@ -4,6 +4,7 @@
 read -p "Enter your fullname: " fullname
 read -p "Enter your username: " username
 echo "{ config, pkgs, ... }:
+
 {
   users.users.$username = {
     isNormalUser = true;
