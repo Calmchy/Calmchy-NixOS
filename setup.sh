@@ -5,7 +5,7 @@ read -p "Enter your fullname: " fullname
 read -p "Enter your username: " username
 echo "{ config, pkgs, ... }:
 {
-  users.users.manatad = {
+  users.users.$username = {
     isNormalUser = true;
     description = "$fullname";
     shell = pkgs.fish; 
