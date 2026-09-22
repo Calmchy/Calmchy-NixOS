@@ -3,6 +3,7 @@
 {
   imports =
     [
+      ./user.nix
       ../modules/packages.nix
       ../modules/virtualisation.nix
       ../modules/php.nix
@@ -89,17 +90,6 @@
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.manatad = {
-    isNormalUser = true;
-    description = "Chyril S. Manatad";
-    shell = pkgs.fish; 
-    extraGroups = [ "networkmanager" "wheel" "docker" "libvirtd" ];
-    packages = with pkgs; [
-      thunderbird
-    ];
-  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
