@@ -14,7 +14,7 @@
     # Docker
     dbStart = "docker compose -f $HOME/github/Calmchy-Database/docker-compose.yml up -d";
     dbStop = "docker compose -f $HOME/github/Calmchy-Database/docker-compose.yml down";
-    dbEdit = "codium $HOME/github/Calmchy-Database/docker-compose.yml";
+    dbEdit = "codium $HOME/github/Calmchy-Database/";
 
 
     # Laravel

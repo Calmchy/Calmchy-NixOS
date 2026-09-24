@@ -3,15 +3,49 @@
 {
   nixpkgs.config.allowUnfree = true;
 
+  programs.thunar = {
+    enable = true;
+    plugins = with pkgs; [
+      thunar-archive-plugin
+      thunar-volman
+    ];
+  };
+
+  programs.fish = {
+    enable = true;
+    interactiveShellInit = ''
+      oh-my-posh init fish --config $HOME/.poshthemes/if_tea.omp.json | source
+      set -g fish_greeting ""
+    '';
+  };
+
+  programs.appimage = {
+    enable = true;
+    binfmt = true;
+  };
+
   environment.systemPackages = with pkgs; [
     # web
-    wget curl git
+    wget
+    curl
+    git
 
     # larp
-    fastfetch htop btop cmatrix cava nyancat tty-clock
+    fastfetch
+    htop
+    btop
+    cmatrix
+    cava
+    nyancat
+    tty-clock
 
     # files
-    zip unzip p7zip gparted xarchiver file-roller
+    zip
+    unzip
+    p7zip
+    gparted
+    xarchiver
+    file-roller
 
     # appimage
     appimage-run
@@ -36,24 +70,41 @@
     brave
 
     # compilers / interpreters
-    jdk8 jdk25 clang python3
+    jdk8
+    jdk25
+    clang
+    python3
 
     # Client
     mariadb.client
 
     # container / virt
     docker-compose
-    virt-manager virt-viewer
-    spice spice-gtk spice-protocol
-    virtio-win win-spice
+    virt-manager
+    virt-viewer
+    spice spice-gtk
+    spice-protocol
+    virtio-win
+    win-spice
 
     # apps
-    clementine obs-studio handbrake
-    tigervnc veracrypt mpv alacritty libreoffice
+    clementine
+    obs-studio
+    handbrake
+    tigervnc
+    veracrypt
+    mpv
+    alacritty
+    libreoffice
 
     # misc
-    ani-cli syncplay pciutils mesa-demos
-    hunspell hunspellDicts.en_US
-    oh-my-posh chafa
+    ani-cli
+    syncplay
+    pciutils
+    mesa-demos
+    hunspell
+    hunspellDicts.en_US
+    oh-my-posh
+    chafa
   ];
 }
