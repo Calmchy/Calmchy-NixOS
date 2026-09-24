@@ -8,6 +8,8 @@
       ../modules/virtualisation.nix
       ../modules/php.nix
       ../modules/picom.nix
+      ../modules/packages.nix
+      ../modules/aliases.nix
     ];
 
   # boot.loader.grub.enable = true;
