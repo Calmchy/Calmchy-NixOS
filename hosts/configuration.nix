@@ -66,6 +66,17 @@
 
   virtualisation.docker.enable = true;
 
+  programs.dconf.enable = true;
+
+  services.dbus.enable = true;
+
+  services.flatpak.enable = true;
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    config.common.default = "*";
+  };
+
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
@@ -78,13 +89,19 @@
   };
 
   environment.sessionVariables = {
-    ANDROID_HOME = "$HOME/Android/Sdk";
-    ANDROID_SDK_ROOT = "$HOME/Android/Sdk";
-    CHROME_EXECUTABLE = "brave";  # fixes Chrome issue too
+    ANDROID_HOME = "/home/manatad/Android/Sdk";
+    ANDROID_SDK_ROOT = "/home/manatad/Android/Sdk";
+    CHROME_EXECUTABLE = "${pkgs.brave}/bin/brave";  # full nix store path
   };
 
   # Enable CUPS to print documents.
-  services.printing.enable = true;
+  services.printing = {
+    enable = true;
+    drivers = with pkgs; [
+      cups-filters
+      cups-pdf-to-pdf
+    ];
+  };
 
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;

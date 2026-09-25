@@ -34,6 +34,7 @@
     fastfetch
     htop
     btop
+    nvtopPackages.full
     cmatrix
     cava
     nyancat
@@ -54,9 +55,12 @@
     xfce4-whiskermenu-plugin
     xfce4-panel-profiles
     xfce4-weather-plugin
+    xfburn
     lm_sensors
     blueman
     plank
+    bamf
+    atril
 
     # text editor
     vim micro
@@ -114,6 +118,18 @@
     vlc
     kitty
     libreoffice
+    dia
+    drawio
+    kdePackages.kdenlive
+    rustdesk
+    dbeaver-bin
+    cloudflare-warp
+    gnome-disk-utility
+    baobab
+    gajim
+    gimp
+    flatpak
+    gnome-software
 
     # misc
     ani-cli
@@ -124,5 +140,9 @@
     hunspellDicts.en_US
     oh-my-posh
     chafa
+    cups
+    cups-pdf-to-pdf
+    cups-filters
+    
   ];
 }
