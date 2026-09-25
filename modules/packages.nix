@@ -73,7 +73,14 @@
     jdk8
     jdk25
     clang
-    python3
+    
+    (python3.withPackages (ps: with ps; [
+      jupyter
+      notebook
+      numpy
+      pandas
+      matplotlib
+    ]))
 
     # Client
     mariadb.client

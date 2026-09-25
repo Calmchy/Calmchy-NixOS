@@ -7,7 +7,6 @@
       ../modules/virtualisation.nix
       ../modules/php.nix
       ../modules/picom.nix
-      ../modules/packages.nix
       ../modules/aliases.nix
       ../modules/kitty.nix
     ];
@@ -27,6 +26,8 @@
   hardware.bluetooth.enable = true;
 
   networking.networkmanager.enable = true;
+
+  networking.nameservers = [ "1.1.1.1" "8.8.8.8" ];
 
   time.timeZone = "Asia/Manila";
 
