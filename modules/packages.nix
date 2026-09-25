@@ -65,6 +65,7 @@
     godot_4
     vscodium
     netbeans
+    android-studio
 
     # browser
     brave

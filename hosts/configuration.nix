@@ -66,6 +66,9 @@
 
   virtualisation.docker.enable = true;
 
+  # Android development
+  programs.adb.enable = true;
+
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
@@ -103,7 +106,7 @@
     isNormalUser = true;
     description = "Chyril S. Manatad";
     shell = pkgs.fish;
-    extraGroups = [ "networkmanager" "wheel" "docker" "libvirtd" ];
+    extraGroups = [ "networkmanager" "wheel" "video" "audio" "docker" "libvirtd" "adb" ];
     packages = with pkgs; [
       thunderbird
     ];
