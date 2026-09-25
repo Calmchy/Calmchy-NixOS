@@ -67,6 +67,8 @@
     netbeans
     android-studio
 
+    android-tools
+
     # browser
     brave
 
@@ -74,6 +76,10 @@
     jdk8
     jdk25
     clang
+    dart
+
+    # framework
+    flutter
     
     # Python and Jupyter NoteBook
     (python3.withPackages (ps: with ps; [

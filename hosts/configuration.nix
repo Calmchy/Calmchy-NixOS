@@ -66,9 +66,6 @@
 
   virtualisation.docker.enable = true;
 
-  # Android development
-  programs.adb.enable = true;
-
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
@@ -78,6 +75,12 @@
   services.ollama = {
     enable = true;
     # acceleration = "rocm";  # AMD GPU — change to "cuda" if nvidia
+  };
+
+  environment.sessionVariables = {
+    ANDROID_HOME = "$HOME/Android/Sdk";
+    ANDROID_SDK_ROOT = "$HOME/Android/Sdk";
+    CHROME_EXECUTABLE = "brave";  # fixes Chrome issue too
   };
 
   # Enable CUPS to print documents.
