@@ -28,5 +28,11 @@
     sailD = "sail down";
     npmB = "sail npm run build";
     npmD = "sail npm run dev";
+
+    # Jupyter
+    jup = "jupyter notebook";
+    jupLab = "jupyter lab";
+    jupStop = "jupyter notebook stop";
+    jupList = "jupyter notebook list";
   };
 }
