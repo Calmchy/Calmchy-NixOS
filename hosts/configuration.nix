@@ -9,6 +9,7 @@
       ../modules/picom.nix
       ../modules/packages.nix
       ../modules/aliases.nix
+      ../modules/kitty.nix
     ];
 
   # boot.loader.grub.enable = true;
@@ -116,9 +117,13 @@
   services.openssh = {
     enable = true;
     settings = {
-      PasswordAuthentication = true;  # set to false if using SSH keys only
-      PermitRootLogin = "no";         # good security practice
+      PasswordAuthentication = true;
+      PermitRootLogin = "no";
     };
+    extraConfig = ''
+      Subsystem sftp internal-sftp
+      AllowTcpForwarding yes
+    '';
   };
 
   # Open ports in the firewall.

@@ -27,7 +27,7 @@
       ];
 
       blur-method = "dual_kawase";
-      blur-strength = 5;
+      blur-strength = 2;
       # blur-background-frame = false;
       blur-background-fixed = true;
 

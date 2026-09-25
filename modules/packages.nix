@@ -94,7 +94,8 @@
     tigervnc
     veracrypt
     mpv
-    alacritty
+    vlc
+    kitty
     libreoffice
 
     # misc
