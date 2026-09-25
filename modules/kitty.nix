@@ -22,6 +22,7 @@
     map ctrl+shift+w close_tab
     map ctrl+shift+l next_tab
     map ctrl+shift+h previous_tab
+    map f11 toggle_fullscreen
   '';
 
   environment.systemPackages = with pkgs; [
