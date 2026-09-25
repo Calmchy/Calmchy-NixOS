@@ -72,6 +72,11 @@
     variant = "";
   };
 
+  services.ollama = {
+    enable = true;
+    # acceleration = "rocm";  # AMD GPU — change to "cuda" if nvidia
+  };
+
   # Enable CUPS to print documents.
   services.printing.enable = true;
 

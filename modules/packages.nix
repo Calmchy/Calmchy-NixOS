@@ -74,6 +74,7 @@
     jdk25
     clang
     
+    # Python and Jupyter NoteBook
     (python3.withPackages (ps: with ps; [
       jupyter
       notebook
@@ -81,6 +82,8 @@
       pandas
       matplotlib
     ]))
+
+    ollama
 
     # Client
     mariadb.client
