@@ -63,7 +63,8 @@
     atril
 
     # text editor
-    vim micro
+    vim
+    micro
 
     # IDE
     godot_4
