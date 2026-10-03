@@ -99,6 +99,7 @@
 
     # Client
     mariadb.client
+    tailscale
 
     # container / virt
     docker-compose
