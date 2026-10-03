@@ -42,5 +42,13 @@
     ollamaStop2 = "ollama stop qwen2.5-coder:3b-instruct-q8_0";
     ollamaList = "ollama list";  # show downloaded models
     ollamaPull = "ollama pull";  # usage: ollamaPull <model>
+
+    # Flatpak
+    fpInstall = "flatpak install flathub";
+    fpRemove  = "flatpak uninstall";
+    fpUpdate  = "flatpak update";
+    fpList    = "flatpak list";
+    fpSearch  = "flatpak search";
+    fpSetup   = "flatpak-setup";
   };
 }
