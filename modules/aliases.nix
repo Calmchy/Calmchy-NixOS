@@ -22,7 +22,7 @@
     dbPMA = "brave http://localhost:80"; # open phpmyadmin in browser
     
     # Laravel Sail
-    sailhelp="brave file:///home/manatad/Desktop/laravel-sail.html";
+    sailhelp = "brave file:///home/manatad/Desktop/laravel-sail.html";
     sail = "./vendor/bin/sail";
     sailS = "sail up -d";
     sailD = "sail down";
@@ -37,10 +37,10 @@
 
     # Ollama
     ollamaStart1 = "ollama run qwen2.5-coder:3b";
-    ollamaStop1  = "ollama stop qwen2.5-coder:3b";
+    ollamaStop1 = "ollama stop qwen2.5-coder:3b";
     ollamaStart2 = "ollama run qwen2.5-coder:3b-instruct-q8_0";
-    ollamaStop2  = "ollama stop qwen2.5-coder:3b-instruct-q8_0";
-    ollamaList   = "ollama list";  # show downloaded models
-    ollamaPull   = "ollama pull";  # usage: ollamaPull <model>
+    ollamaStop2 = "ollama stop qwen2.5-coder:3b-instruct-q8_0";
+    ollamaList = "ollama list";  # show downloaded models
+    ollamaPull = "ollama pull";  # usage: ollamaPull <model>
   };
 }
