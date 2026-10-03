@@ -9,6 +9,7 @@
       ../modules/picom.nix
       ../modules/aliases.nix
       ../modules/kitty.nix
+      ../modules/flatpak.nix
     ];
 
   # boot.loader.grub.enable = true;

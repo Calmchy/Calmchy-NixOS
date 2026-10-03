@@ -131,6 +131,7 @@
     gimp
     flatpak
     gnome-software
+    telegram-desktop
 
     # misc
     ani-cli
