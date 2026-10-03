@@ -124,7 +124,6 @@
     kdePackages.kdenlive
     rustdesk
     dbeaver-bin
-    cloudflare-warp
     gnome-disk-utility
     baobab
     gajim
