@@ -10,7 +10,9 @@
 
       echo "Installing Flatpak apps..."
       flatpak install -y flathub \
-        org.freedownloadmanager.Manager
+        org.freedownloadmanager.Manager \
+        org.swi_prolog.swipl \
+        com.getpostman.Postman
 
       echo "Done! Run 'flatpak list' to see installed apps."
     '')
