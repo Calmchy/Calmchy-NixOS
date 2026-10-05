@@ -10,8 +10,8 @@
 
     # window size
     remember_window_size  no
-    initial_window_width  800
-    initial_window_height 500
+    initial_window_width  950
+    initial_window_height 495
 
     # tabs
     tab_bar_style powerline
