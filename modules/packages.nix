@@ -55,6 +55,7 @@
     xfce4-whiskermenu-plugin
     xfce4-panel-profiles
     xfce4-weather-plugin
+    xfce4-clipman-plugin
     xfburn
     lm_sensors
     blueman
@@ -111,7 +112,6 @@
     win-spice
 
     # apps
-    clementine
     obs-studio
     handbrake
     tigervnc
@@ -132,6 +132,7 @@
     flatpak
     gnome-software
     telegram-desktop
+    rufin
 
     # misc
     ani-cli
@@ -145,6 +146,5 @@
     cups
     cups-pdf-to-pdf
     cups-filters
-    
   ];
 }
