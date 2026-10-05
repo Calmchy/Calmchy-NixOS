@@ -10,6 +10,7 @@
 
     # Terminal aliases
     cls = "cls";
+    ssh = "kitten ssh";
 
     # Docker - Database Mariadb with Phpmyadmin
     dbStart = "docker compose -f $HOME/github/Calmchy-Database/docker-compose.yml up -d";
