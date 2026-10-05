@@ -133,6 +133,7 @@
     gnome-software
     telegram-desktop
     rufin
+    # figma-linux
 
     # misc
     ani-cli
@@ -146,5 +147,8 @@
     cups
     cups-pdf-to-pdf
     cups-filters
+    libsecret
+    gnome-keyring
+    seahorse
   ];
 }
