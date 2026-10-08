@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   imports =
@@ -13,11 +13,26 @@
       ../modules/usbguard.nix
     ];
 
-  # boot.loader.grub.enable = true;
-  # boot.loader.grub.device = "/dev/vda";
-  # boot.loader.grub.useOSProber = true;
+  # UEFI (physical machine) — uncomment this block:
+  boot.loader.grub = {
+    enable = true;
+    device = "nodev";
+    efiSupport = true;
+    useOSProber = true;
+  };
+  boot.loader.efi.canTouchEfiVariables = true;
 
-  boot.loader.systemd-boot.enable = true;
+  # BIOS/Legacy (VMs, older hardware) — uncomment this block:
+  # boot.loader.grub = {
+  #   enable      = true;
+  #   device      = "/dev/vda";  # VM disk — check with: lsblk
+  #   efiSupport  = false;
+  #   useOSProber = true;
+  # };
+
+  # systemd-boot (UEFI only, simpler/faster) — uncomment this block:
+  # boot.loader.systemd-boot.enable = true;
+  # boot.loader.efi.canTouchEfiVariables = true;
 
   boot.initrd.kernelModules = [ "amdgpu" ];
 
@@ -99,15 +114,6 @@
     CHROME_EXECUTABLE = "${pkgs.brave}/bin/brave";  # full nix store path
   };
 
-  # Enable CUPS to print documents.
-  services.printing = {
-    enable = true;
-    drivers = with pkgs; [
-      cups-pdf-to-pdf
-      cups-filters
-    ];
-  };
-
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -163,7 +169,6 @@
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
   networking.firewall = {
     enable = true;
     trustedInterfaces = [ "tailscale0" ];
