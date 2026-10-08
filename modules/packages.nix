@@ -145,9 +145,6 @@
     hunspellDicts.en_US
     oh-my-posh
     chafa
-    cups
-    cups-pdf-to-pdf
-    cups-filters
     libsecret
     gnome-keyring
     seahorse
