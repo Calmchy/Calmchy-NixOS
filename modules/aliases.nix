@@ -12,6 +12,12 @@
     cls = "cls";
     ssh = "kitten ssh";
 
+    # USBGuard aliases
+    usbList = "sudo usbguard list-devices";
+    usbAllow = "sudo usbguard allow-device";
+    usbBlock = "sudo usbguard block-device";
+    usbPolicy = "sudo usbguard generate-policy";
+
     # Docker - Database Mariadb with Phpmyadmin
     dbStart = "docker compose -f $HOME/github/Calmchy-Database/docker-compose.yml up -d";
     dbStop = "docker compose -f $HOME/github/Calmchy-Database/docker-compose.yml down";
