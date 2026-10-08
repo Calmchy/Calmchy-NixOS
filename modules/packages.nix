@@ -76,7 +76,7 @@
     android-tools
 
     # browser
-    brave
+    librewolf
 
     # compilers / interpreters
     jdk8
@@ -112,6 +112,7 @@
     win-spice
 
     # apps
+    thunderbird
     obs-studio
     handbrake
     tigervnc
