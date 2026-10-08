@@ -10,6 +10,7 @@
       ../modules/aliases.nix
       ../modules/kitty.nix
       ../modules/flatpak.nix
+      ../modules/usbguard.nix
     ];
 
   # boot.loader.grub.enable = true;
@@ -132,7 +133,6 @@
     shell = pkgs.fish;
     extraGroups = [ "networkmanager" "wheel" "video" "audio" "docker" "libvirtd" "adb" ];
     packages = with pkgs; [
-      thunderbird
     ];
   };
 
