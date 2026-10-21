@@ -59,7 +59,7 @@
     LC_NUMERIC = "fil_PH";
     LC_PAPER = "fil_PH";
     LC_TELEPHONE = "fil_PH";
-    LC_TIME = "fil_PH";
+    LC_TIME = "en_US.UTF-8";
   };
 
   services.xserver.videoDrivers = [ "amdgpu" ];
@@ -111,7 +111,7 @@
   environment.sessionVariables = {
     ANDROID_HOME = "/home/manatad/Android/Sdk";
     ANDROID_SDK_ROOT = "/home/manatad/Android/Sdk";
-    CHROME_EXECUTABLE = "${pkgs.brave}/bin/brave";  # full nix store path
+    CHROME_EXECUTABLE = "${pkgs.brave}/bin/librewolf";  # full nix store path
   };
 
   # Enable sound with pipewire.

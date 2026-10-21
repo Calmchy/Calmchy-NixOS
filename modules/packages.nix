@@ -16,6 +16,15 @@
     interactiveShellInit = ''
       oh-my-posh init fish --config $HOME/.poshthemes/if_tea.omp.json | source
       set -g fish_greeting ""
+      
+      # Load ~/.env file
+      if test -f ~/github/Calmchy-NixOS/.env
+        for line in (grep -v '^#' ~/github/Calmchy-NixOS/.env | grep -v '^$')
+          set -l key (string split -m1 '=' $line)[1]
+          set -l val (string split -m1 '=' $line)[2]
+          set -gx $key $val
+        end
+      end
     '';
   };
 
@@ -112,6 +121,7 @@
     win-spice
 
     # apps
+    clementine
     thunderbird
     obs-studio
     handbrake
@@ -133,7 +143,7 @@
     flatpak
     gnome-software
     telegram-desktop
-    rufin
+    # rufin
     # figma-linux
 
     # misc

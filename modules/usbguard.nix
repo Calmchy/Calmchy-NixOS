@@ -31,7 +31,7 @@
       # USB Optical Mouse (30fa:0400) - via ORICO hub
       allow id 30fa:0400 serial "" name "USB Optical Mouse " hash "dnc9VfKy7eeMhBmbn1oKvumjHAxHMUf5OoIfo3MtPiY=" with-interface 03:01:02
 
-            # SanDisk 3.2Gen1 (0781:5591)
+      # SanDisk 3.2Gen1 (0781:5591)
       allow id 0781:5591 serial "01018ae3ec0f82ae0fcf85913ed62ced272f4e9ee9c39e6284c7ad934c11b6093de10000000000000000000056ff55e9ff0950009155810745331c4e" name " SanDisk 3.2Gen1" hash "4VWR5wNt59N8dtCL3OVaUCqbnPFjDCYh0A3bDbCFNIs=" with-interface 08:06:50
 
       # SanDisk Cruzer Blade (0781:5567)

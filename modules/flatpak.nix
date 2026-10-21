@@ -13,6 +13,7 @@
         org.freedownloadmanager.Manager \
         org.swi_prolog.swipl \
         com.getpostman.Postman
+        # com.usebottles.bottles
 
       echo "Done! Run 'flatpak list' to see installed apps."
     '')

@@ -8,6 +8,11 @@
     window_padding_width 8
     confirm_os_window_close 0
 
+    # cursor
+    # cursor_shape beam
+    # cursor_blink_interval 0.5
+    # cursor_stop_blinking_after 15
+
     # window size
     remember_window_size  no
     initial_window_width  950
