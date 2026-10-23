@@ -1,0 +1,5 @@
+mkdir -p ~/packettracer ~/App/CiscoPacketTracer
+nix shell nixpkgs#dpkg -c dpkg-deb -x ~/Downloads/CiscoPacketTracer*.deb ~/packettracer
+mv ~/packettracer/opt/pt/packettracer.AppImage ~/App/CiscoPacketTracer/PacketTracer.AppImage
+chmod +x ~/App/CiscoPacketTracer/PacketTracer.AppImage
+rm -rf ~/packettracer
