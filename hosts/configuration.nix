@@ -11,6 +11,7 @@
       ../modules/kitty.nix
       ../modules/flatpak.nix
       ../modules/usbguard.nix
+      ../modules/ciscoPacketTracer.nix
     ];
 
   # UEFI (physical machine) — uncomment this block:
