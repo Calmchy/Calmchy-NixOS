@@ -10,7 +10,7 @@
 
     # Terminal aliases
     cls = "cls";
-    ssh = "kitten ssh";
+    kssh = "kitten ssh";
 
     # USBGuard aliases
     usbList = "sudo usbguard list-devices";

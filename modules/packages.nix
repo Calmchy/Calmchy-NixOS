@@ -58,7 +58,11 @@
     file-roller
 
     # appimage
-    appimage-run
+    (appimage-run.override {
+      extraPkgs = pkgs: [
+        pkgs.libxshmfence
+      ];
+    })
 
     # XFCE extras
     xfce4-whiskermenu-plugin
@@ -86,6 +90,7 @@
 
     # browser
     librewolf
+    brave
 
     # compilers / interpreters
     jdk8

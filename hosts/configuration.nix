@@ -77,6 +77,7 @@
   services.xserver.desktopManager.xfce.enable = true;
   services.xserver.displayManager.lightdm.enable = true;
 
+  services.udisks2.mountOnMedia = true;
   services.gvfs.enable = true;
   programs.xfconf.enable = true;
 
@@ -173,7 +174,14 @@
   networking.firewall = {
     enable = true;
     trustedInterfaces = [ "tailscale0" ];
-    allowedUDPPorts = [ config.services.tailscale.port ];
+    allowedUDPPorts = [
+      config.services.tailscale.port
+      5353
+    ];
+
+    allowedTCPPorts = [
+      57891
+    ];
   };
 
   # This value determines the NixOS release from which the default
