@@ -2,6 +2,7 @@
 
 {
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.permittedInsecurePackages = [ "ventoy-gtk3-1.1.17" ];
 
   programs.thunar = {
     enable = true;
@@ -150,6 +151,7 @@
     telegram-desktop
     # rufin
     # figma-linux
+    ventoy-full-gtk
 
     # misc
     ani-cli
