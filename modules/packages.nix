@@ -55,7 +55,6 @@
 
     # hardware / desktop utilities
     lm_sensors
-    blueman
     atril
 
     # text editor

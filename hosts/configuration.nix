@@ -146,7 +146,7 @@
   users.users.chyril = {
     isNormalUser = true;
     description = "Gaming";
-    extraGroups = [ "networkmanager" "video" "audio" ];
+    extraGroups = [ "networkmanager" "wheel" "video" "audio" "shared" "input" ];
   };
 
   # Some programs need SUID wrappers, can be configured further or are
