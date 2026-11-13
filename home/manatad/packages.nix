@@ -12,8 +12,8 @@
     android-tools
 
     # compilers / interpreters
-    jdk8
     jdk25
+    (lib.lowPrio jdk8)   # lowPrio: jdk25 wins the shared files (java, javac, keytool...)
     clang
     dart
 
