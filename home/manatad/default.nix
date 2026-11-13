@@ -17,7 +17,7 @@
     sessionVariables = {
       ANDROID_HOME = "/home/manatad/Android/Sdk";
       ANDROID_SDK_ROOT = "/home/manatad/Android/Sdk";
-      CHROME_EXECUTABLE = "${pkgs.brave}/bin/librewolf";  # carried over unchanged from hosts/configuration.nix
+      CHROME_EXECUTABLE = "${pkgs.brave}/bin/brave";  # carried over unchanged from hosts/configuration.nix
     };
   };
 
