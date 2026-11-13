@@ -42,7 +42,18 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  hardware.bluetooth.enable = true;
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+    settings = {
+      General = {
+        Enable = "Source,Sink,Media,Socket";
+        Experimental = true;
+      };
+    };
+  };
+
+  services.udev.packages = [ pkgs.game-devices-udev-rules ];
 
   networking.networkmanager.enable = true;
 
@@ -146,7 +157,7 @@
   users.users.chyril = {
     isNormalUser = true;
     description = "Gaming";
-    extraGroups = [ "networkmanager" "wheel" "video" "audio" "shared" "input" ];
+    extraGroups = [ "networkmanager" "wheel" "video" "audio" "shared" "input" "plugdev" ];
   };
 
   # Some programs need SUID wrappers, can be configured further or are
