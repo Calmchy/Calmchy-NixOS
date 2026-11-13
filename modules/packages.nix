@@ -78,6 +78,7 @@
     # text editor
     vim
     micro
+    geany
 
     # browser
     librewolf

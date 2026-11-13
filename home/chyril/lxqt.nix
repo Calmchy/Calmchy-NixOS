@@ -1,7 +1,31 @@
 { pkgs, ... }:
 
+# LXQt extras for chyril.
+# LXQt itself (panel, session, config, pcmanfm-qt, qterminal, pavucontrol-qt,
+# lximage-qt, lxqt-archiver, screengrab, qps, notifications, polkit, power
+# management, breeze icons) is installed by services.xserver.desktopManager.lxqt
+# in modules/desktops.nix. This file only adds what that module does not ship.
+
 {
-  # LXQt extras for chyril. Empty for now; LXQt itself is enabled in modules/desktops.nix.
   home.packages = with pkgs; [
+    networkmanagerapplet   # network tray icon (nm-applet), autostarted below
+    featherpad             # lightweight Qt text editor
+    # copyq                # clipboard manager (LXQt has none); uncomment if wanted
+    # papirus-icon-theme   # alternative icon theme to the default breeze-icons
   ];
+
+  # Start the network applet with the LXQt session.
+  xdg.configFile."autostart/nm-applet.desktop".text = ''
+    [Desktop Entry]
+    Type=Application
+    Name=Network
+    Exec=${pkgs.networkmanagerapplet}/bin/nm-applet
+    X-LXQt-Need-Tray=true
+  '';
+
+  # Create ~/Desktop, ~/Documents, ~/Downloads, ~/Music, ~/Pictures, ~/Videos...
+  xdg.userDirs = {
+    enable = true;
+    createDirectories = true;
+  };
 }

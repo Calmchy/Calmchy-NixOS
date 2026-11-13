@@ -6,6 +6,7 @@
       ../modules/packages.nix
       ../modules/virtualisation.nix
       ../modules/desktops.nix
+      ../modules/shared.nix
       ../modules/picom.nix
       ../modules/aliases.nix
       ../modules/kitty.nix
