@@ -23,6 +23,14 @@
     X-LXQt-Need-Tray=true
   '';
 
+  xdg.configFile."autostart/bluedevil.desktop".text = "
+  [Desktop Entry]
+  Type=Application
+  Name=Bluedevil
+  Exec=bluedevil-monolithic
+  Hidden=false
+  ";
+
   # Create ~/Desktop, ~/Documents, ~/Downloads, ~/Music, ~/Pictures, ~/Videos...
   xdg.userDirs = {
     enable = true;

@@ -6,6 +6,7 @@
     # Optional: includes ktexteditor components for root/sudo saving support
     kdePackages.ktexteditor
     kdePackages.konsole
+    kdePackages.bluedevil
 
     gamescope
   ];

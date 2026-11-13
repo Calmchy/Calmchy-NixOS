@@ -37,21 +37,15 @@
   # boot.loader.efi.canTouchEfiVariables = true;
 
   boot.initrd.kernelModules = [ "amdgpu" ];
+  boot.kernelModules = [ "hid-nintendo" "joydev" ];
+
 
   networking.hostName = "nixos";
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  hardware.bluetooth = {
-    enable = true;
-    powerOnBoot = true;
-    settings = {
-      General = {
-        Enable = "Source,Sink,Media,Socket";
-        Experimental = true;
-      };
-    };
-  };
+  hardware.bluetooth.enable = true;
+  hardware.uinput.enable = true;
 
   services.udev.packages = [ pkgs.game-devices-udev-rules ];
 
@@ -157,7 +151,7 @@
   users.users.chyril = {
     isNormalUser = true;
     description = "Gaming";
-    extraGroups = [ "networkmanager" "wheel" "video" "audio" "shared" "input" "plugdev" ];
+    extraGroups = [ "networkmanager" "wheel" "video" "audio" "shared" ];
   };
 
   # Some programs need SUID wrappers, can be configured further or are
