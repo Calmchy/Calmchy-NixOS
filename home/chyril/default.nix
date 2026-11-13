@@ -2,8 +2,9 @@
 
 {
   imports = [
-    ./gaming.nix
+    ./packages.nix
     ./lxqt.nix
+    ./flatpak.nix
   ];
 
   home = {

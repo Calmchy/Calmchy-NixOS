@@ -8,5 +8,12 @@
     xfburn
     plank
     bamf
+
+    (thunar.override {
+      thunarPlugins = with pkgs; [
+        thunar-archive-plugin
+        thunar-volman
+      ];
+    })
   ];
 }

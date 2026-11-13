@@ -6,6 +6,7 @@
     ./php.nix
     ./ciscoPacketTracer.nix
     ./xfce.nix
+    ./flatpak.nix
   ];
 
   home = {

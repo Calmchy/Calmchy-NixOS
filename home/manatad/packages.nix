@@ -47,8 +47,20 @@
     dia
     drawio
 
+    # Client
+    tailscale
+
     # remote access
     rustdesk
     tigervnc
+
+    # Apps
+    handbrake
+    veracrypt
+    libreoffice
+    kdePackages.kdenlive
+    gajim
+    gimp
+    ventoy-full-gtk
   ];
 }

@@ -9,12 +9,9 @@
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.permittedInsecurePackages = [ "ventoy-gtk3-1.1.17" ];
 
-  programs.thunar = {
+  programs.appimage = {
     enable = true;
-    plugins = with pkgs; [
-      thunar-archive-plugin
-      thunar-volman
-    ];
+    binfmt = true;
   };
 
   programs.fish = {
@@ -22,21 +19,7 @@
     interactiveShellInit = ''
       oh-my-posh init fish --config $HOME/.poshthemes/if_tea.omp.json | source
       set -g fish_greeting ""
-      
-      # Load ~/.env file
-      if test -f ~/github/Calmchy-NixOS/.env
-        for line in (grep -v '^#' ~/github/Calmchy-NixOS/.env | grep -v '^$')
-          set -l key (string split -m1 '=' $line)[1]
-          set -l val (string split -m1 '=' $line)[2]
-          set -gx $key $val
-        end
-      end
     '';
-  };
-
-  programs.appimage = {
-    enable = true;
-    binfmt = true;
   };
 
   environment.systemPackages = with pkgs; [
@@ -78,36 +61,25 @@
     # text editor
     vim
     micro
-    geany
 
     # browser
     librewolf
     brave
 
-    # Client
-    tailscale
-
     # apps
     clementine
     thunderbird
     obs-studio
-    handbrake
-    veracrypt
     mpv
     vlc
     kitty
-    libreoffice
-    kdePackages.kdenlive
     gnome-disk-utility
     baobab
-    gajim
-    gimp
     flatpak
     gnome-software
     telegram-desktop
     # rufin
     # figma-linux
-    ventoy-full-gtk
 
     # misc
     ani-cli
