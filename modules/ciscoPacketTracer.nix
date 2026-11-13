@@ -1,5 +1,8 @@
 { pkgs, ... }:
 
+# System side of Cisco Packet Tracer: appimage-run with the extra libs it needs.
+# The `pt` launcher itself is installed for manatad in home/manatad/ciscoPacketTracer.nix
+
 let
   pt-appimage-run = pkgs.appimage-run.override {
     extraPkgs = p: with p; [
@@ -23,11 +26,4 @@ let
 in
 {
   programs.appimage.package = pt-appimage-run;
-
-  environment.systemPackages = [
-    (pkgs.writeShellScriptBin "pt" ''
-      exec ${pt-appimage-run}/bin/appimage-run \
-        "$HOME/Apps/CiscoPacketTracer/packettracer.AppImage" "$@"
-    '')
-  ];
 }

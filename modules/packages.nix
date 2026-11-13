@@ -1,5 +1,10 @@
 { config, pkgs, ... }:
 
+# System-wide packages shared by every user.
+# Per-user packages live in home/<user>/ (home-manager):
+#   manatad -> development + XFCE extras
+#   chyril  -> gaming + LXQt extras
+
 {
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.permittedInsecurePackages = [ "ventoy-gtk3-1.1.17" ];
@@ -65,83 +70,33 @@
       ];
     })
 
-    # XFCE extras
-    xfce4-whiskermenu-plugin
-    xfce4-panel-profiles
-    xfce4-weather-plugin
-    xfce4-clipman-plugin
-    xfburn
+    # hardware / desktop utilities
     lm_sensors
     blueman
-    plank
-    bamf
     atril
 
     # text editor
     vim
     micro
 
-    # IDE
-    godot_4
-    vscodium
-    netbeans
-    android-studio
-
-    android-tools
-
     # browser
     librewolf
     brave
 
-    # compilers / interpreters
-    jdk8
-    jdk25
-    clang
-    dart
-
-    # framework
-    flutter
-    
-    # Python and Jupyter NoteBook
-    (python3.withPackages (ps: with ps; [
-      jupyter
-      notebook
-      numpy
-      pandas
-      matplotlib
-    ]))
-
-    ollama
-
     # Client
-    mariadb.client
     tailscale
-
-    # container / virt
-    docker-compose
-    virt-manager
-    virt-viewer
-    spice spice-gtk
-    spice-protocol
-    virtio-win
-    win-spice
 
     # apps
     clementine
     thunderbird
     obs-studio
     handbrake
-    tigervnc
     veracrypt
     mpv
     vlc
     kitty
     libreoffice
-    dia
-    drawio
     kdePackages.kdenlive
-    rustdesk
-    dbeaver-bin
     gnome-disk-utility
     baobab
     gajim

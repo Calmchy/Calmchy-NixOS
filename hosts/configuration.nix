@@ -5,7 +5,7 @@
     [
       ../modules/packages.nix
       ../modules/virtualisation.nix
-      ../modules/php.nix
+      ../modules/desktops.nix
       ../modules/picom.nix
       ../modules/aliases.nix
       ../modules/kitty.nix
@@ -70,7 +70,7 @@
     enable32Bit = true;
   };
 
-  # Enable the X11 windowing system.
+  # X11, LightDM, XFCE (manatad) and LXQt (chyril) are set up in modules/desktops.nix
   services.xserver.enable = true;
 
   # Enable the XFCE Desktop Environment.
@@ -110,11 +110,7 @@
     # acceleration = "rocm";  # AMD GPU — change to "cuda" if nvidia
   };
 
-  environment.sessionVariables = {
-    ANDROID_HOME = "/home/manatad/Android/Sdk";
-    ANDROID_SDK_ROOT = "/home/manatad/Android/Sdk";
-    CHROME_EXECUTABLE = "${pkgs.brave}/bin/librewolf";  # full nix store path
-  };
+  # ANDROID_HOME / ANDROID_SDK_ROOT / CHROME_EXECUTABLE moved to home/manatad/default.nix
 
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
@@ -135,13 +131,21 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
+  # Packages for each user are managed by home-manager (see flake.nix and home/).
+
+  # Developer — XFCE
   users.users.manatad = {
     isNormalUser = true;
-    description = "Chyril S. Manatad";
+    description = "Dev";
     shell = pkgs.fish;
     extraGroups = [ "networkmanager" "wheel" "video" "audio" "docker" "libvirtd" "adb" ];
-    packages = with pkgs; [
-    ];
+  };
+
+  # Gamer — LXQt (set a password after the first rebuild: sudo passwd chyril)
+  users.users.chyril = {
+    isNormalUser = true;
+    description = "Gaming";
+    extraGroups = [ "networkmanager" "video" "audio" ];
   };
 
   # Some programs need SUID wrappers, can be configured further or are

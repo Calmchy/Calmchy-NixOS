@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 let
   extraExtensionNames = [
@@ -23,7 +23,7 @@ let
   );
 in
 {
-  environment.systemPackages = with pkgs; [
+  home.packages = with pkgs; [
     php
     php.packages.composer
     laravel
