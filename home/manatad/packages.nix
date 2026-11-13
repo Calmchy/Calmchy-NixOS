@@ -15,7 +15,7 @@
     jdk25
     (lib.lowPrio jdk8)   # lowPrio: jdk25 wins the shared files (java, javac, keytool...)
     clang
-    dart
+    (lib.lowPrio dart)   # flutter already bundles a Dart SDK; keep this as a fallback `dart` command
 
     # framework
     flutter
