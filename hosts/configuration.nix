@@ -37,8 +37,14 @@
   # boot.loader.efi.canTouchEfiVariables = true;
 
   boot.initrd.kernelModules = [ "amdgpu" ];
-  # boot.kernelModules = [ "hid-nintendo" "joydev" ];
+  boot.kernelModules = [ "hid-nintendo" "joydev" "uinput" "bluetooth" ];
 
+  services.udev.extraRules = ''
+    # Nintendo Pro Controller via Bluetooth (uhid)
+    KERNEL=="hidraw*", KERNELS=="0005:057E:2009*", MODE="0660", TAG+="uaccess", TAG+="udev-acl"
+    # Also cover USB connection
+    KERNEL=="hidraw*", ATTRS{idVendor}=="057e", ATTRS{idProduct}=="2009", MODE="0660", TAG+="uaccess", TAG+="udev-acl"
+  '';
 
   networking.hostName = "nixos";
 
@@ -47,7 +53,9 @@
   hardware.bluetooth.enable = true;
   hardware.uinput.enable = true;
 
-  services.udev.packages = [ pkgs.game-devices-udev-rules ];
+  services.udev.packages = with pkgs; [
+    game-devices-udev-rules
+  ];
 
   networking.networkmanager.enable = true;
 
@@ -153,6 +161,17 @@
     description = "Gaming";
     extraGroups = [ "networkmanager" "wheel" "video" "audio" "shared" ];
   };
+
+  # Create shared group for config access
+  users.groups.shared = {
+    members = [ "manatad" "chyril" ];
+  };
+
+  # Shared config directory with correct permissions
+  systemd.tmpfiles.rules = [
+    "d /home/shared 0775 manatad shared -"
+    "Z /home/shared/Calmchy-NixOS 0775 manatad shared -"
+  ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
