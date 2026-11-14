@@ -37,7 +37,7 @@
   # boot.loader.efi.canTouchEfiVariables = true;
 
   boot.initrd.kernelModules = [ "amdgpu" ];
-  boot.kernelModules = [ "hid-nintendo" "joydev" ];
+  # boot.kernelModules = [ "hid-nintendo" "joydev" ];
 
 
   networking.hostName = "nixos";
