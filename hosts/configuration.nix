@@ -36,6 +36,8 @@
   # boot.loader.systemd-boot.enable = true;
   # boot.loader.efi.canTouchEfiVariables = true;
 
+  # boot.kernelPackages = pkgs.linuxPackages_cachyos;
+
   boot.initrd.kernelModules = [ "amdgpu" ];
   boot.kernelModules = [ "hid-nintendo" "joydev" "uinput" "bluetooth" ];
 
@@ -48,7 +50,17 @@
 
   networking.hostName = "nixos";
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings = {
+    experimental-features = [ "nix-command" "flakes" ];
+    substituters = [
+      "https://cache.nixos.org"
+      "https://attic.xuyh0120.win/lantian"
+    ];
+    trusted-public-keys = [
+      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+      "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
+    ];
+  };
 
   hardware.bluetooth.enable = true;
   hardware.uinput.enable = true;
@@ -154,6 +166,8 @@
     shell = pkgs.fish;
     extraGroups = [ "networkmanager" "wheel" "video" "audio" "docker" "libvirtd" "adb" ];
   };
+
+  users.groups.plugdev = {};  # create the group first
 
   # Gamer — LXQt (set a password after the first rebuild: sudo passwd chyril)
   users.users.chyril = {
