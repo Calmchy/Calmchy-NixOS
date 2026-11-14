@@ -9,5 +9,6 @@
     kdePackages.bluedevil
 
     gamescope
+    cemu
   ];
 }

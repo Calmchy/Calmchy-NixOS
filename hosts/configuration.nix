@@ -159,7 +159,7 @@
   users.users.chyril = {
     isNormalUser = true;
     description = "Gaming";
-    extraGroups = [ "networkmanager" "wheel" "video" "audio" "shared" ];
+    extraGroups = [ "networkmanager" "wheel" "video" "audio" "shared" "input" "plugdev" ];
   };
 
   # Create shared group for config access
