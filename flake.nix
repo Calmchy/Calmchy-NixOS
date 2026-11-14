@@ -9,6 +9,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Don't add nixpkgs.follows here: it breaks cache hits
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
   };
 
@@ -19,7 +20,7 @@
         ./hosts/configuration.nix
         ./hosts/hardware-configuration.nix
 
-        # CachyOS kernel overlay — uses pinned nixpkgs for binary cache hits
+        # CachyOS kernel overlay: pinned nixpkgs so the binary cache matches
         ({ pkgs, ... }: {
           nixpkgs.overlays = [ nix-cachyos-kernel.overlays.pinned ];
           boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bore;
