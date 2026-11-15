@@ -113,6 +113,7 @@
 
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.lightdm.enableGnomeKeyring = true;
+  security.pam.services.xscreensaver.enable = true;
 
   services.flatpak.enable = true;
   xdg.portal = {
@@ -164,6 +165,7 @@
   };
 
   users.groups.plugdev = {};  # create the group first
+  security.pam.services.xscreensaver = {};
 
   # Gamer — LXQt (set a password after the first rebuild: sudo passwd chyril)
   users.users.chyril = {
