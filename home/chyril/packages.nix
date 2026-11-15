@@ -9,6 +9,14 @@
     kdePackages.bluedevil
 
     gamescope
+
     cemu
+    azahar
+    melonds
+    mgba
+    dolphin-emu
+    ppsspp-sdl
+    pcsx2
+    eden
   ];
 }

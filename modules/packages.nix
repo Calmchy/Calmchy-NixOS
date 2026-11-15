@@ -55,6 +55,7 @@
 
     # hardware / desktop utilities
     lm_sensors
+    xdotool
     atril
 
     # text editor

@@ -10,8 +10,9 @@
   home.packages = with pkgs; [
     networkmanagerapplet   # network tray icon (nm-applet), autostarted below
     featherpad             # lightweight Qt text editor
-    # copyq                # clipboard manager (LXQt has none); uncomment if wanted
-    # papirus-icon-theme   # alternative icon theme to the default breeze-icons
+    copyq                # clipboard manager (LXQt has none); uncomment if wanted
+    papirus-icon-theme   # alternative icon theme to the default breeze-icons
+    brightnessctl
   ];
 
   # Start the network applet with the LXQt session.

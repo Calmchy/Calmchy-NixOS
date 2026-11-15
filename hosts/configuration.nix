@@ -107,6 +107,8 @@
 
   programs.dconf.enable = true;
 
+    programs.gamemode.enable = true;
+
   services.dbus.enable = true;
 
   services.tailscale.enable = true;

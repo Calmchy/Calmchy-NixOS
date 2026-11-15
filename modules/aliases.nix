@@ -5,6 +5,7 @@
     # NixOS aliases
     nixEdit = "codium /home/shared/Calmchy-NixOS"; # Edit NixOS Configuration
     nixUpdate = "sudo nixos-rebuild switch --flake /home/shared/Calmchy-NixOS#nixos"; # NixOS Update/Upgrade
+    nixKernelUpdate = "nix flake update nix-cachyos-kernel --flake /home/shared/Calmchy-NixOS && /home/shared/Calmchy-NixOS/rebuild.sh";
     nixClean = "sudo nix-collect-garbage -d"; # Delete all NixOS gen accept the latest build/gen
     nixClean7D = "sudo nix-collect-garbage --delete-older-than 7d"; # Delete 7 days old NixOS build/gen
 

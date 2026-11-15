@@ -5,6 +5,7 @@
     ./packages.nix
     ./lxqt.nix
     ./flatpak.nix
+    ./lutris.nix
   ];
 
   home = {
