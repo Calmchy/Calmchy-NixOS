@@ -168,7 +168,7 @@
   # Gamer — LXQt (set a password after the first rebuild: sudo passwd chyril)
   users.users.chyril = {
     isNormalUser = true;
-    description = "Gaming";
+    description = "Game";
     extraGroups = [ "networkmanager" "wheel" "video" "audio" "shared" "input" "plugdev" ];
   };
 
