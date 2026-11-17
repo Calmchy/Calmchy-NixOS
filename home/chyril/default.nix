@@ -6,6 +6,7 @@
     ./lxqt.nix
     ./flatpak.nix
     ./lutris.nix
+    ./eden-motion.nix
   ];
 
   home = {
