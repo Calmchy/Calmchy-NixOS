@@ -55,7 +55,7 @@
 
     # hardware / desktop utilities
     lm_sensors
-    blueman
+    xdotool
     atril
 
     # text editor

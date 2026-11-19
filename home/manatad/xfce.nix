@@ -8,6 +8,7 @@
     xfburn
     plank
     bamf
+    blueman
 
     (thunar.override {
       thunarPlugins = with pkgs; [

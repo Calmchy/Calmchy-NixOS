@@ -2,7 +2,6 @@
 
 let
   apps = [
-    "org.freedownloadmanager.Manager"
     "org.swi_prolog.swipl"
     "com.getpostman.Postman"
     # "com.usebottles.bottles"

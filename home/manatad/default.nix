@@ -21,5 +21,10 @@
     };
   };
 
+  # home/manatad/home.nix  
+  home.shellAliases = {
+    update = "cd /home/shared/Calmchy-NixOS && git pull origin dev && sudo nixos-rebuild switch --flake .#nixos";
+  };
+
   programs.home-manager.enable = true;
 }

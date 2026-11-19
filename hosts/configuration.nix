@@ -36,13 +36,34 @@
   # boot.loader.systemd-boot.enable = true;
   # boot.loader.efi.canTouchEfiVariables = true;
 
+  # boot.kernelPackages = pkgs.linuxPackages_cachyos;
+
   boot.initrd.kernelModules = [ "amdgpu" ];
+  boot.kernelModules = [ "hid-nintendo" "joydev" "uinput" "bluetooth" ];
+
+  services.udev.extraRules = ''
+    # Nintendo Pro Controller via Bluetooth (uhid)
+    KERNEL=="hidraw*", KERNELS=="0005:057E:2009*", MODE="0660", TAG+="uaccess", TAG+="udev-acl"
+    # Also cover USB connection
+    KERNEL=="hidraw*", ATTRS{idVendor}=="057e", ATTRS{idProduct}=="2009", MODE="0660", TAG+="uaccess", TAG+="udev-acl"
+  '';
 
   networking.hostName = "nixos";
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings = {
+    experimental-features = [ "nix-command" "flakes" ];
+    extra-substituters = [ "https://cache.lantian.pub/lantian" ];
+    extra-trusted-public-keys = [
+      "lantian:WVGO7vsRMSEN+h7Lp7kv6SAmrkEXgUGbbXm7jMDjBuQ="
+    ];
+  };
 
   hardware.bluetooth.enable = true;
+  hardware.uinput.enable = true;
+
+  services.udev.packages = with pkgs; [
+    game-devices-udev-rules
+  ];
 
   networking.networkmanager.enable = true;
 
@@ -86,12 +107,15 @@
 
   programs.dconf.enable = true;
 
+    programs.gamemode.enable = true;
+
   services.dbus.enable = true;
 
   services.tailscale.enable = true;
 
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.lightdm.enableGnomeKeyring = true;
+  security.pam.services.xscreensaver.enable = true;
 
   services.flatpak.enable = true;
   xdg.portal = {
@@ -142,12 +166,26 @@
     extraGroups = [ "networkmanager" "wheel" "video" "audio" "docker" "libvirtd" "adb" ];
   };
 
+  users.groups.plugdev = {};  # create the group first
+  security.pam.services.xscreensaver = {};
+
   # Gamer — LXQt (set a password after the first rebuild: sudo passwd chyril)
   users.users.chyril = {
     isNormalUser = true;
-    description = "Gaming";
-    extraGroups = [ "networkmanager" "video" "audio" ];
+    description = "Game";
+    extraGroups = [ "networkmanager" "wheel" "video" "audio" "shared" "input" "plugdev" ];
   };
+
+  # Create shared group for config access
+  users.groups.shared = {
+    members = [ "manatad" "chyril" ];
+  };
+
+  # Shared config directory with correct permissions
+  systemd.tmpfiles.rules = [
+    "d /home/shared 0775 manatad shared -"
+    "Z /home/shared/Calmchy-NixOS 0775 manatad shared -"
+  ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
