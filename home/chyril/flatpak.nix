@@ -3,6 +3,8 @@
 let
   apps = [
     # gaming Flatpaks go here, e.g. "com.usebottles.bottles"
+    org.vinegarhq.Sober
+    io.mrarm.mcpelauncher
   ];
 in
 {
