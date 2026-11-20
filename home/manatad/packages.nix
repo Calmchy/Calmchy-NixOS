@@ -5,7 +5,7 @@
     # IDE / editors
     godot_4
     vscodium
-    netbeans
+    # netbeans
     android-studio
 
     # android
@@ -55,12 +55,12 @@
     tigervnc
 
     # Apps
-    handbrake
+    # handbrake
     veracrypt
-    libreoffice
-    kdePackages.kdenlive
-    gajim
-    gimp
+    # libreoffice
+    # kdePackages.kdenlive
+    # gajim
+    # gimp
     ventoy-full-gtk
   ];
 }
